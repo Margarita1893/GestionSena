@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MatrizdeevaluacionEditDlg" widgetVar="MatrizdeevaluacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMatrizdeevaluacionTitle}">
+            <h:form id="MatrizdeevaluacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{matrizdeevaluacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_pkMatrizdeEvaluacion}" for="pkMatrizdeEvaluacion" />
+                        <p:inputText id="pkMatrizdeEvaluacion" value="#{matrizdeevaluacionController.selected.pkMatrizdeEvaluacion}" title="#{bundle.EditMatrizdeevaluacionTitle_pkMatrizdeEvaluacion}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_pkMatrizdeEvaluacion}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{matrizdeevaluacionController.selected.codigo}" title="#{bundle.EditMatrizdeevaluacionTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_horasDeTrabajoDirecto}" for="horasDeTrabajoDirecto" />
+                        <p:inputText id="horasDeTrabajoDirecto" value="#{matrizdeevaluacionController.selected.horasDeTrabajoDirecto}" title="#{bundle.EditMatrizdeevaluacionTitle_horasDeTrabajoDirecto}" />
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_horasDeTrabajoIndependiente}" for="horasDeTrabajoIndependiente" />
+                        <p:inputText id="horasDeTrabajoIndependiente" value="#{matrizdeevaluacionController.selected.horasDeTrabajoIndependiente}" title="#{bundle.EditMatrizdeevaluacionTitle_horasDeTrabajoIndependiente}" />
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_matrizDeEvaluacioncol}" for="matrizDeEvaluacioncol" />
+                        <p:inputText id="matrizDeEvaluacioncol" value="#{matrizdeevaluacionController.selected.matrizDeEvaluacioncol}" title="#{bundle.EditMatrizdeevaluacionTitle_matrizDeEvaluacioncol}" />
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}" for="estrategiasDidacticasActivaspkEstrategiasDdacticasActivas" />
+                        <p:inputText id="estrategiasDidacticasActivaspkEstrategiasDdacticasActivas" value="#{matrizdeevaluacionController.selected.estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}" title="#{bundle.EditMatrizdeevaluacionTitle_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_encabezadoPlaneacionpkEncabezadoPlaneacion}" for="encabezadoPlaneacionpkEncabezadoPlaneacion" />
+                        <p:inputText id="encabezadoPlaneacionpkEncabezadoPlaneacion" value="#{matrizdeevaluacionController.selected.encabezadoPlaneacionpkEncabezadoPlaneacion}" title="#{bundle.EditMatrizdeevaluacionTitle_encabezadoPlaneacionpkEncabezadoPlaneacion}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_criteriosDeEvaluacionpkCriteriosDeEvaluacion}" for="criteriosDeEvaluacionpkCriteriosDeEvaluacion" />
+                        <p:inputText id="criteriosDeEvaluacionpkCriteriosDeEvaluacion" value="#{matrizdeevaluacionController.selected.criteriosDeEvaluacionpkCriteriosDeEvaluacion}" title="#{bundle.EditMatrizdeevaluacionTitle_criteriosDeEvaluacionpkCriteriosDeEvaluacion}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_criteriosDeEvaluacionpkCriteriosDeEvaluacion}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_instructoresResponsablesidInstructoresResponsables}" for="instructoresResponsablesidInstructoresResponsables" />
+                        <p:inputText id="instructoresResponsablesidInstructoresResponsables" value="#{matrizdeevaluacionController.selected.instructoresResponsablesidInstructoresResponsables}" title="#{bundle.EditMatrizdeevaluacionTitle_instructoresResponsablesidInstructoresResponsables}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_instructoresResponsablesidInstructoresResponsables}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_ambientesAprendizajepkAmbientesAprendizaje}" for="ambientesAprendizajepkAmbientesAprendizaje" />
+                        <p:inputText id="ambientesAprendizajepkAmbientesAprendizaje" value="#{matrizdeevaluacionController.selected.ambientesAprendizajepkAmbientesAprendizaje}" title="#{bundle.EditMatrizdeevaluacionTitle_ambientesAprendizajepkAmbientesAprendizaje}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_ambientesAprendizajepkAmbientesAprendizaje}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_resultadoAprendizajepkResultadoAprendizaje}" for="resultadoAprendizajepkResultadoAprendizaje" />
+                        <p:inputText id="resultadoAprendizajepkResultadoAprendizaje" value="#{matrizdeevaluacionController.selected.resultadoAprendizajepkResultadoAprendizaje}" title="#{bundle.EditMatrizdeevaluacionTitle_resultadoAprendizajepkResultadoAprendizaje}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_resultadoAprendizajepkResultadoAprendizaje}"/>
+                        <p:outputLabel value="#{bundle.EditMatrizdeevaluacionLabel_actividadAprendizajepkActividadAprendizaje}" for="actividadAprendizajepkActividadAprendizaje" />
+                        <p:inputText id="actividadAprendizajepkActividadAprendizaje" value="#{matrizdeevaluacionController.selected.actividadAprendizajepkActividadAprendizaje}" title="#{bundle.EditMatrizdeevaluacionTitle_actividadAprendizajepkActividadAprendizaje}" required="true" requiredMessage="#{bundle.EditMatrizdeevaluacionRequiredMessage_actividadAprendizajepkActividadAprendizaje}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{matrizdeevaluacionController.update}" value="#{bundle.Save}" update="display,:MatrizdeevaluacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MatrizdeevaluacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MatrizdeevaluacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

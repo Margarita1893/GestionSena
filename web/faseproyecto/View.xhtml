@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FaseproyectoViewDlg" widgetVar="FaseproyectoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFaseproyectoTitle}">
+            <h:form id="FaseproyectoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{faseproyectoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_pkFaseProyecto}"/>
+                        <h:outputText value="#{faseproyectoController.selected.pkFaseProyecto}" title="#{bundle.ViewFaseproyectoTitle_pkFaseProyecto}"/>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_fkProyecto}"/>
+                        <h:outputText value="#{faseproyectoController.selected.fkProyecto}" title="#{bundle.ViewFaseproyectoTitle_fkProyecto}"/>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_codigo}"/>
+                        <h:outputText value="#{faseproyectoController.selected.codigo}" title="#{bundle.ViewFaseproyectoTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_nombre}"/>
+                        <h:outputText value="#{faseproyectoController.selected.nombre}" title="#{bundle.ViewFaseproyectoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_activo}"/>
+                        <h:outputText value="#{faseproyectoController.selected.activo}" title="#{bundle.ViewFaseproyectoTitle_activo}"/>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_fechaCreacion}"/>
+                        <h:outputText value="#{faseproyectoController.selected.fechaCreacion}" title="#{bundle.ViewFaseproyectoTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFaseproyectoLabel_fechaModificacion}"/>
+                        <h:outputText value="#{faseproyectoController.selected.fechaModificacion}" title="#{bundle.ViewFaseproyectoTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FaseproyectoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

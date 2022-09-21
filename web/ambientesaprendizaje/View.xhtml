@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AmbientesaprendizajeViewDlg" widgetVar="AmbientesaprendizajeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAmbientesaprendizajeTitle}">
+            <h:form id="AmbientesaprendizajeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ambientesaprendizajeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAmbientesaprendizajeLabel_pkAmbientesAprendizaje}"/>
+                        <h:outputText value="#{ambientesaprendizajeController.selected.pkAmbientesAprendizaje}" title="#{bundle.ViewAmbientesaprendizajeTitle_pkAmbientesAprendizaje}"/>
+                        <h:outputText value="#{bundle.ViewAmbientesaprendizajeLabel_codigo}"/>
+                        <h:outputText value="#{ambientesaprendizajeController.selected.codigo}" title="#{bundle.ViewAmbientesaprendizajeTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewAmbientesaprendizajeLabel_ambiente}"/>
+                        <h:outputText value="#{ambientesaprendizajeController.selected.ambiente}" title="#{bundle.ViewAmbientesaprendizajeTitle_ambiente}"/>
+                        <h:outputText value="#{bundle.ViewAmbientesaprendizajeLabel_materialFomacion}"/>
+                        <h:outputText value="#{ambientesaprendizajeController.selected.materialFomacion}" title="#{bundle.ViewAmbientesaprendizajeTitle_materialFomacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AmbientesaprendizajeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

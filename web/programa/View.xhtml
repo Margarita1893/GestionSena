@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProgramaViewDlg" widgetVar="ProgramaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProgramaTitle}">
+            <h:form id="ProgramaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{programaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProgramaLabel_pkPrograma}"/>
+                        <h:outputText value="#{programaController.selected.pkPrograma}" title="#{bundle.ViewProgramaTitle_pkPrograma}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_fkTipoPrograma}"/>
+                        <h:outputText value="#{programaController.selected.fkTipoPrograma}" title="#{bundle.ViewProgramaTitle_fkTipoPrograma}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_fkModalidadEjecucion}"/>
+                        <h:outputText value="#{programaController.selected.fkModalidadEjecucion}" title="#{bundle.ViewProgramaTitle_fkModalidadEjecucion}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_version}"/>
+                        <h:outputText value="#{programaController.selected.version}" title="#{bundle.ViewProgramaTitle_version}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_codigo}"/>
+                        <h:outputText value="#{programaController.selected.codigo}" title="#{bundle.ViewProgramaTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_nombre}"/>
+                        <h:outputText value="#{programaController.selected.nombre}" title="#{bundle.ViewProgramaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_activo}"/>
+                        <h:outputText value="#{programaController.selected.activo}" title="#{bundle.ViewProgramaTitle_activo}"/>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_fechaCreacion}"/>
+                        <h:outputText value="#{programaController.selected.fechaCreacion}" title="#{bundle.ViewProgramaTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProgramaLabel_fechaModificacion}"/>
+                        <h:outputText value="#{programaController.selected.fechaModificacion}" title="#{bundle.ViewProgramaTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProgramaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

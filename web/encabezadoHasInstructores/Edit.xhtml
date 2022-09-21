@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EncabezadoHasInstructoresEditDlg" widgetVar="EncabezadoHasInstructoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEncabezadoHasInstructoresTitle}">
+            <h:form id="EncabezadoHasInstructoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{encabezadoHasInstructoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEncabezadoHasInstructoresLabel_pkEncabezadoPlaneacionpkEncabezadoPlaneacion}" for="pkEncabezadoPlaneacionpkEncabezadoPlaneacion" />
+                        <p:inputText id="pkEncabezadoPlaneacionpkEncabezadoPlaneacion" value="#{encabezadoHasInstructoresController.selected.pkEncabezadoPlaneacionpkEncabezadoPlaneacion}" title="#{bundle.EditEncabezadoHasInstructoresTitle_pkEncabezadoPlaneacionpkEncabezadoPlaneacion}" required="true" requiredMessage="#{bundle.EditEncabezadoHasInstructoresRequiredMessage_pkEncabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoHasInstructoresLabel_instructorespklInstructores}" for="instructorespklInstructores" />
+                        <p:inputText id="instructorespklInstructores" value="#{encabezadoHasInstructoresController.selected.instructorespklInstructores}" title="#{bundle.EditEncabezadoHasInstructoresTitle_instructorespklInstructores}" required="true" requiredMessage="#{bundle.EditEncabezadoHasInstructoresRequiredMessage_instructorespklInstructores}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoHasInstructoresLabel_idEncabezadohasInstructorescol}" for="idEncabezadohasInstructorescol" />
+                        <p:inputText id="idEncabezadohasInstructorescol" value="#{encabezadoHasInstructoresController.selected.idEncabezadohasInstructorescol}" title="#{bundle.EditEncabezadoHasInstructoresTitle_idEncabezadohasInstructorescol}" required="true" requiredMessage="#{bundle.EditEncabezadoHasInstructoresRequiredMessage_idEncabezadohasInstructorescol}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoHasInstructoresLabel_encabezadoPlaneacionpkEncabezadoPlaneacion}" for="encabezadoPlaneacionpkEncabezadoPlaneacion" />
+                        <p:inputText id="encabezadoPlaneacionpkEncabezadoPlaneacion" value="#{encabezadoHasInstructoresController.selected.encabezadoPlaneacionpkEncabezadoPlaneacion}" title="#{bundle.EditEncabezadoHasInstructoresTitle_encabezadoPlaneacionpkEncabezadoPlaneacion}" required="true" requiredMessage="#{bundle.EditEncabezadoHasInstructoresRequiredMessage_encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{encabezadoHasInstructoresController.update}" value="#{bundle.Save}" update="display,:EncabezadoHasInstructoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EncabezadoHasInstructoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EncabezadoHasInstructoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

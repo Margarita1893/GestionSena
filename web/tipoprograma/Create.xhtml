@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoprogramaCreateDlg" widgetVar="TipoprogramaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipoprogramaTitle}">
+            <h:form id="TipoprogramaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoprogramaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_pkTipoPrograma}" for="pkTipoPrograma" />
+                        <p:inputText id="pkTipoPrograma" value="#{tipoprogramaController.selected.pkTipoPrograma}" title="#{bundle.CreateTipoprogramaTitle_pkTipoPrograma}" required="true" requiredMessage="#{bundle.CreateTipoprogramaRequiredMessage_pkTipoPrograma}"/>
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{tipoprogramaController.selected.codigo}" title="#{bundle.CreateTipoprogramaTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{tipoprogramaController.selected.nombre}" title="#{bundle.CreateTipoprogramaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTipoprogramaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{tipoprogramaController.selected.activo}" title="#{bundle.CreateTipoprogramaTitle_activo}" />
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{tipoprogramaController.selected.fechaCreacion}" title="#{bundle.EditTipoprogramaTitle_fechaCreacion}" required="true" requiredMessage="#{bundle.EditTipoprogramaRequiredMessage_fechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateTipoprogramaLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{tipoprogramaController.selected.fechaModificacion}" title="#{bundle.EditTipoprogramaTitle_fechaModificacion}" required="true" requiredMessage="#{bundle.EditTipoprogramaRequiredMessage_fechaModificacion}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoprogramaController.create}" value="#{bundle.Save}" update="display,:TipoprogramaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoprogramaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoprogramaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

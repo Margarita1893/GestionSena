@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ResultadoaprendizajeViewDlg" widgetVar="ResultadoaprendizajeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewResultadoaprendizajeTitle}">
+            <h:form id="ResultadoaprendizajeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{resultadoaprendizajeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_pkResultadoAprendizaje}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.pkResultadoAprendizaje}" title="#{bundle.ViewResultadoaprendizajeTitle_pkResultadoAprendizaje}"/>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_fkCompetencia}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.fkCompetencia}" title="#{bundle.ViewResultadoaprendizajeTitle_fkCompetencia}"/>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_codigo}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.codigo}" title="#{bundle.ViewResultadoaprendizajeTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_nombre}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.nombre}" title="#{bundle.ViewResultadoaprendizajeTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_activo}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.activo}" title="#{bundle.ViewResultadoaprendizajeTitle_activo}"/>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_fechaCreacion}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.fechaCreacion}" title="#{bundle.ViewResultadoaprendizajeTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewResultadoaprendizajeLabel_fechaModificacion}"/>
+                        <h:outputText value="#{resultadoaprendizajeController.selected.fechaModificacion}" title="#{bundle.ViewResultadoaprendizajeTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ResultadoaprendizajeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

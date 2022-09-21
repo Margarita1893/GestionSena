@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="MatrizdeevaluacionListForm">
+                <p:panel header="#{bundle.ListMatrizdeevaluacionTitle}">
+                    <p:dataTable id="datalist" value="#{matrizdeevaluacionController.items}" var="item"
+                                 selectionMode="single" selection="#{matrizdeevaluacionController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.pkMatrizdeEvaluacion}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_pkMatrizdeEvaluacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pkMatrizdeEvaluacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_horasDeTrabajoDirecto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horasDeTrabajoDirecto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_horasDeTrabajoIndependiente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horasDeTrabajoIndependiente}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_matrizDeEvaluacioncol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.matrizDeEvaluacioncol}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_criteriosDeEvaluacionpkCriteriosDeEvaluacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.criteriosDeEvaluacionpkCriteriosDeEvaluacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_instructoresResponsablesidInstructoresResponsables}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.instructoresResponsablesidInstructoresResponsables}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_ambientesAprendizajepkAmbientesAprendizaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ambientesAprendizajepkAmbientesAprendizaje}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_resultadoAprendizajepkResultadoAprendizaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.resultadoAprendizajepkResultadoAprendizaje}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMatrizdeevaluacionTitle_actividadAprendizajepkActividadAprendizaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.actividadAprendizajepkActividadAprendizaje}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{matrizdeevaluacionController.prepareCreate}" update=":MatrizdeevaluacionCreateForm" oncomplete="PF('MatrizdeevaluacionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MatrizdeevaluacionViewForm" oncomplete="PF('MatrizdeevaluacionViewDialog').show()" disabled="#{empty matrizdeevaluacionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MatrizdeevaluacionEditForm" oncomplete="PF('MatrizdeevaluacionEditDialog').show()" disabled="#{empty matrizdeevaluacionController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{matrizdeevaluacionController.destroy}" update=":growl,datalist" disabled="#{empty matrizdeevaluacionController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

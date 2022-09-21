@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MatrizdeevaluacionViewDlg" widgetVar="MatrizdeevaluacionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMatrizdeevaluacionTitle}">
+            <h:form id="MatrizdeevaluacionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{matrizdeevaluacionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_pkMatrizdeEvaluacion}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.pkMatrizdeEvaluacion}" title="#{bundle.ViewMatrizdeevaluacionTitle_pkMatrizdeEvaluacion}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_codigo}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.codigo}" title="#{bundle.ViewMatrizdeevaluacionTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_horasDeTrabajoDirecto}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.horasDeTrabajoDirecto}" title="#{bundle.ViewMatrizdeevaluacionTitle_horasDeTrabajoDirecto}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_horasDeTrabajoIndependiente}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.horasDeTrabajoIndependiente}" title="#{bundle.ViewMatrizdeevaluacionTitle_horasDeTrabajoIndependiente}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_matrizDeEvaluacioncol}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.matrizDeEvaluacioncol}" title="#{bundle.ViewMatrizdeevaluacionTitle_matrizDeEvaluacioncol}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}" title="#{bundle.ViewMatrizdeevaluacionTitle_estrategiasDidacticasActivaspkEstrategiasDdacticasActivas}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.encabezadoPlaneacionpkEncabezadoPlaneacion}" title="#{bundle.ViewMatrizdeevaluacionTitle_encabezadoPlaneacionpkEncabezadoPlaneacion}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_criteriosDeEvaluacionpkCriteriosDeEvaluacion}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.criteriosDeEvaluacionpkCriteriosDeEvaluacion}" title="#{bundle.ViewMatrizdeevaluacionTitle_criteriosDeEvaluacionpkCriteriosDeEvaluacion}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_instructoresResponsablesidInstructoresResponsables}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.instructoresResponsablesidInstructoresResponsables}" title="#{bundle.ViewMatrizdeevaluacionTitle_instructoresResponsablesidInstructoresResponsables}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_ambientesAprendizajepkAmbientesAprendizaje}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.ambientesAprendizajepkAmbientesAprendizaje}" title="#{bundle.ViewMatrizdeevaluacionTitle_ambientesAprendizajepkAmbientesAprendizaje}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_resultadoAprendizajepkResultadoAprendizaje}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.resultadoAprendizajepkResultadoAprendizaje}" title="#{bundle.ViewMatrizdeevaluacionTitle_resultadoAprendizajepkResultadoAprendizaje}"/>
+                        <h:outputText value="#{bundle.ViewMatrizdeevaluacionLabel_actividadAprendizajepkActividadAprendizaje}"/>
+                        <h:outputText value="#{matrizdeevaluacionController.selected.actividadAprendizajepkActividadAprendizaje}" title="#{bundle.ViewMatrizdeevaluacionTitle_actividadAprendizajepkActividadAprendizaje}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MatrizdeevaluacionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AmbientesaprendizajeEditDlg" widgetVar="AmbientesaprendizajeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAmbientesaprendizajeTitle}">
+            <h:form id="AmbientesaprendizajeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ambientesaprendizajeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAmbientesaprendizajeLabel_pkAmbientesAprendizaje}" for="pkAmbientesAprendizaje" />
+                        <p:inputText id="pkAmbientesAprendizaje" value="#{ambientesaprendizajeController.selected.pkAmbientesAprendizaje}" title="#{bundle.EditAmbientesaprendizajeTitle_pkAmbientesAprendizaje}" required="true" requiredMessage="#{bundle.EditAmbientesaprendizajeRequiredMessage_pkAmbientesAprendizaje}"/>
+                        <p:outputLabel value="#{bundle.EditAmbientesaprendizajeLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{ambientesaprendizajeController.selected.codigo}" title="#{bundle.EditAmbientesaprendizajeTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditAmbientesaprendizajeLabel_ambiente}" for="ambiente" />
+                        <p:inputText id="ambiente" value="#{ambientesaprendizajeController.selected.ambiente}" title="#{bundle.EditAmbientesaprendizajeTitle_ambiente}" />
+                        <p:outputLabel value="#{bundle.EditAmbientesaprendizajeLabel_materialFomacion}" for="materialFomacion" />
+                        <p:inputText id="materialFomacion" value="#{ambientesaprendizajeController.selected.materialFomacion}" title="#{bundle.EditAmbientesaprendizajeTitle_materialFomacion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ambientesaprendizajeController.update}" value="#{bundle.Save}" update="display,:AmbientesaprendizajeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AmbientesaprendizajeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AmbientesaprendizajeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

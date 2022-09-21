@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CompetenciaCreateDlg" widgetVar="CompetenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCompetenciaTitle}">
+            <h:form id="CompetenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{competenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_pkCompetencia}" for="pkCompetencia" />
+                        <p:inputText id="pkCompetencia" value="#{competenciaController.selected.pkCompetencia}" title="#{bundle.CreateCompetenciaTitle_pkCompetencia}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_pkCompetencia}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_fkPrograma}" for="fkPrograma" />
+                        <p:inputText id="fkPrograma" value="#{competenciaController.selected.fkPrograma}" title="#{bundle.CreateCompetenciaTitle_fkPrograma}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_fkPrograma}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{competenciaController.selected.codigo}" title="#{bundle.CreateCompetenciaTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{competenciaController.selected.nombre}" title="#{bundle.CreateCompetenciaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{competenciaController.selected.activo}" title="#{bundle.CreateCompetenciaTitle_activo}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_activo}"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{competenciaController.selected.fechaCreacion}" title="#{bundle.EditCompetenciaTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCompetenciaLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{competenciaController.selected.fechaModificacion}" title="#{bundle.EditCompetenciaTitle_fechaModificacion}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{competenciaController.create}" value="#{bundle.Save}" update="display,:CompetenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'CompetenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CompetenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

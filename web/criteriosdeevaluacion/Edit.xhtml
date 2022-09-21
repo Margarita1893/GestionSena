@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CriteriosdeevaluacionEditDlg" widgetVar="CriteriosdeevaluacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCriteriosdeevaluacionTitle}">
+            <h:form id="CriteriosdeevaluacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{criteriosdeevaluacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCriteriosdeevaluacionLabel_pkCriteriosDeEvaluacion}" for="pkCriteriosDeEvaluacion" />
+                        <p:inputText id="pkCriteriosDeEvaluacion" value="#{criteriosdeevaluacionController.selected.pkCriteriosDeEvaluacion}" title="#{bundle.EditCriteriosdeevaluacionTitle_pkCriteriosDeEvaluacion}" required="true" requiredMessage="#{bundle.EditCriteriosdeevaluacionRequiredMessage_pkCriteriosDeEvaluacion}"/>
+                        <p:outputLabel value="#{bundle.EditCriteriosdeevaluacionLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{criteriosdeevaluacionController.selected.codigo}" title="#{bundle.EditCriteriosdeevaluacionTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditCriteriosdeevaluacionLabel_decripcionEvidencia}" for="decripcionEvidencia" />
+                        <p:inputTextarea rows="4" cols="30" id="decripcionEvidencia" value="#{criteriosdeevaluacionController.selected.decripcionEvidencia}" title="#{bundle.EditCriteriosdeevaluacionTitle_decripcionEvidencia}" />
+                        <p:outputLabel value="#{bundle.EditCriteriosdeevaluacionLabel_observaciones}" for="observaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="observaciones" value="#{criteriosdeevaluacionController.selected.observaciones}" title="#{bundle.EditCriteriosdeevaluacionTitle_observaciones}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{criteriosdeevaluacionController.update}" value="#{bundle.Save}" update="display,:CriteriosdeevaluacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CriteriosdeevaluacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CriteriosdeevaluacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
