@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CompetenciaViewDlg" widgetVar="CompetenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCompetenciaTitle}">
+            <h:form id="CompetenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{competenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_pkCompetencia}"/>
+                        <h:outputText value="#{competenciaController.selected.pkCompetencia}" title="#{bundle.ViewCompetenciaTitle_pkCompetencia}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_fkPrograma}"/>
+                        <h:outputText value="#{competenciaController.selected.fkPrograma}" title="#{bundle.ViewCompetenciaTitle_fkPrograma}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_codigo}"/>
+                        <h:outputText value="#{competenciaController.selected.codigo}" title="#{bundle.ViewCompetenciaTitle_codigo}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_nombre}"/>
+                        <h:outputText value="#{competenciaController.selected.nombre}" title="#{bundle.ViewCompetenciaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_activo}"/>
+                        <h:outputText value="#{competenciaController.selected.activo}" title="#{bundle.ViewCompetenciaTitle_activo}"/>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_fechaCreacion}"/>
+                        <h:outputText value="#{competenciaController.selected.fechaCreacion}" title="#{bundle.ViewCompetenciaTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCompetenciaLabel_fechaModificacion}"/>
+                        <h:outputText value="#{competenciaController.selected.fechaModificacion}" title="#{bundle.ViewCompetenciaTitle_fechaModificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CompetenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

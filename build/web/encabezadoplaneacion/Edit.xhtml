@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EncabezadoplaneacionEditDlg" widgetVar="EncabezadoplaneacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEncabezadoplaneacionTitle}">
+            <h:form id="EncabezadoplaneacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{encabezadoplaneacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_pkEncabezadoPlaneacion}" for="pkEncabezadoPlaneacion" />
+                        <p:inputText id="pkEncabezadoPlaneacion" value="#{encabezadoplaneacionController.selected.pkEncabezadoPlaneacion}" title="#{bundle.EditEncabezadoplaneacionTitle_pkEncabezadoPlaneacion}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_pkEncabezadoPlaneacion}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_fkPrograma}" for="fkPrograma" />
+                        <p:inputText id="fkPrograma" value="#{encabezadoplaneacionController.selected.fkPrograma}" title="#{bundle.EditEncabezadoplaneacionTitle_fkPrograma}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_fkPrograma}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_fkUsuario}" for="fkUsuario" />
+                        <p:inputText id="fkUsuario" value="#{encabezadoplaneacionController.selected.fkUsuario}" title="#{bundle.EditEncabezadoplaneacionTitle_fkUsuario}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_fkUsuario}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{encabezadoplaneacionController.selected.codigo}" title="#{bundle.EditEncabezadoplaneacionTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{encabezadoplaneacionController.selected.nombre}" title="#{bundle.EditEncabezadoplaneacionTitle_nombre}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{encabezadoplaneacionController.selected.fecha}" title="#{bundle.EditEncabezadoplaneacionTitle_fecha}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{encabezadoplaneacionController.selected.activo}" title="#{bundle.EditEncabezadoplaneacionTitle_activo}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_activo}"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{encabezadoplaneacionController.selected.fechaCreacion}" title="#{bundle.EditEncabezadoplaneacionTitle_fechaCreacion}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_fechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditEncabezadoplaneacionLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{encabezadoplaneacionController.selected.fechaModificacion}" title="#{bundle.EditEncabezadoplaneacionTitle_fechaModificacion}" required="true" requiredMessage="#{bundle.EditEncabezadoplaneacionRequiredMessage_fechaModificacion}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{encabezadoplaneacionController.update}" value="#{bundle.Save}" update="display,:EncabezadoplaneacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EncabezadoplaneacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EncabezadoplaneacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

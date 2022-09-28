@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProgramaCreateDlg" widgetVar="ProgramaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProgramaTitle}">
+            <h:form id="ProgramaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{programaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_pkPrograma}" for="pkPrograma" />
+                        <p:inputText id="pkPrograma" value="#{programaController.selected.pkPrograma}" title="#{bundle.CreateProgramaTitle_pkPrograma}" required="true" requiredMessage="#{bundle.CreateProgramaRequiredMessage_pkPrograma}"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_fkTipoPrograma}" for="fkTipoPrograma" />
+                        <p:inputText id="fkTipoPrograma" value="#{programaController.selected.fkTipoPrograma}" title="#{bundle.CreateProgramaTitle_fkTipoPrograma}" required="true" requiredMessage="#{bundle.CreateProgramaRequiredMessage_fkTipoPrograma}"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_fkModalidadEjecucion}" for="fkModalidadEjecucion" />
+                        <p:inputText id="fkModalidadEjecucion" value="#{programaController.selected.fkModalidadEjecucion}" title="#{bundle.CreateProgramaTitle_fkModalidadEjecucion}" required="true" requiredMessage="#{bundle.CreateProgramaRequiredMessage_fkModalidadEjecucion}"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_version}" for="version" />
+                        <p:inputText id="version" value="#{programaController.selected.version}" title="#{bundle.CreateProgramaTitle_version}" />
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{programaController.selected.codigo}" title="#{bundle.CreateProgramaTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{programaController.selected.nombre}" title="#{bundle.CreateProgramaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProgramaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{programaController.selected.activo}" title="#{bundle.CreateProgramaTitle_activo}" required="true" requiredMessage="#{bundle.CreateProgramaRequiredMessage_activo}"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{programaController.selected.fechaCreacion}" title="#{bundle.EditProgramaTitle_fechaCreacion}" required="true" requiredMessage="#{bundle.EditProgramaRequiredMessage_fechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateProgramaLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{programaController.selected.fechaModificacion}" title="#{bundle.EditProgramaTitle_fechaModificacion}" required="true" requiredMessage="#{bundle.EditProgramaRequiredMessage_fechaModificacion}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{programaController.create}" value="#{bundle.Save}" update="display,:ProgramaListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProgramaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProgramaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

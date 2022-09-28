@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AmbientesaprendizajeCreateDlg" widgetVar="AmbientesaprendizajeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAmbientesaprendizajeTitle}">
+            <h:form id="AmbientesaprendizajeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ambientesaprendizajeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAmbientesaprendizajeLabel_pkAmbientesAprendizaje}" for="pkAmbientesAprendizaje" />
+                        <p:inputText id="pkAmbientesAprendizaje" value="#{ambientesaprendizajeController.selected.pkAmbientesAprendizaje}" title="#{bundle.CreateAmbientesaprendizajeTitle_pkAmbientesAprendizaje}" required="true" requiredMessage="#{bundle.CreateAmbientesaprendizajeRequiredMessage_pkAmbientesAprendizaje}"/>
+                        <p:outputLabel value="#{bundle.CreateAmbientesaprendizajeLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{ambientesaprendizajeController.selected.codigo}" title="#{bundle.CreateAmbientesaprendizajeTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateAmbientesaprendizajeLabel_ambiente}" for="ambiente" />
+                        <p:inputText id="ambiente" value="#{ambientesaprendizajeController.selected.ambiente}" title="#{bundle.CreateAmbientesaprendizajeTitle_ambiente}" />
+                        <p:outputLabel value="#{bundle.CreateAmbientesaprendizajeLabel_materialFomacion}" for="materialFomacion" />
+                        <p:inputText id="materialFomacion" value="#{ambientesaprendizajeController.selected.materialFomacion}" title="#{bundle.CreateAmbientesaprendizajeTitle_materialFomacion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ambientesaprendizajeController.create}" value="#{bundle.Save}" update="display,:AmbientesaprendizajeListForm:datalist,:growl" oncomplete="handleSubmit(args,'AmbientesaprendizajeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AmbientesaprendizajeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

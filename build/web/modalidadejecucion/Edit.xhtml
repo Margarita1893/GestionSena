@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ModalidadejecucionEditDlg" widgetVar="ModalidadejecucionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditModalidadejecucionTitle}">
+            <h:form id="ModalidadejecucionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{modalidadejecucionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_pkModalidadEjecucion}" for="pkModalidadEjecucion" />
+                        <p:inputText id="pkModalidadEjecucion" value="#{modalidadejecucionController.selected.pkModalidadEjecucion}" title="#{bundle.EditModalidadejecucionTitle_pkModalidadEjecucion}" required="true" requiredMessage="#{bundle.EditModalidadejecucionRequiredMessage_pkModalidadEjecucion}"/>
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{modalidadejecucionController.selected.codigo}" title="#{bundle.EditModalidadejecucionTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{modalidadejecucionController.selected.nombre}" title="#{bundle.EditModalidadejecucionTitle_nombre}" required="true" requiredMessage="#{bundle.EditModalidadejecucionRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{modalidadejecucionController.selected.activo}" title="#{bundle.EditModalidadejecucionTitle_activo}" />
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{modalidadejecucionController.selected.fechaCreacion}" title="#{bundle.EditModalidadejecucionTitle_fechaCreacion}" required="true" requiredMessage="#{bundle.EditModalidadejecucionRequiredMessage_fechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditModalidadejecucionLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{modalidadejecucionController.selected.fechaModificacion}" title="#{bundle.EditModalidadejecucionTitle_fechaModificacion}" required="true" requiredMessage="#{bundle.EditModalidadejecucionRequiredMessage_fechaModificacion}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{modalidadejecucionController.update}" value="#{bundle.Save}" update="display,:ModalidadejecucionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ModalidadejecucionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ModalidadejecucionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

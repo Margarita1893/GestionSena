@@ -36,13 +36,14 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements Serializab
         String consulta="";
         try{
         
-            consulta="Select u from Usuario u where u.usuario=?1 and u.pass=?2";
+            consulta= "SELECT * FROM Usuario";
+                    /*"Select u from Usuario u where u.correo=?1 and u.contrasena=?2"*/
             Query query =em.createQuery(consulta);
-            query.setParameter(1,us.getCorreo());
-            query.setParameter(2,us.getContrasena());
-            List<Usuario> lista = query.getResultList();
+            /*query.setParameter(1,us.getCorreo());
+            query.setParameter(2,us.getContrasena());*/
+            List lista = query.getResultList();
            if(lista.isEmpty()){
-               usuario=lista.get(0);
+               usuario=(Usuario) lista.get(0);
             } 
     }catch(Exception ex){
         throw ex;

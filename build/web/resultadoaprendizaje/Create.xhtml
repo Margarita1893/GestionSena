@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ResultadoaprendizajeCreateDlg" widgetVar="ResultadoaprendizajeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateResultadoaprendizajeTitle}">
+            <h:form id="ResultadoaprendizajeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{resultadoaprendizajeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_pkResultadoAprendizaje}" for="pkResultadoAprendizaje" />
+                        <p:inputText id="pkResultadoAprendizaje" value="#{resultadoaprendizajeController.selected.pkResultadoAprendizaje}" title="#{bundle.CreateResultadoaprendizajeTitle_pkResultadoAprendizaje}" required="true" requiredMessage="#{bundle.CreateResultadoaprendizajeRequiredMessage_pkResultadoAprendizaje}"/>
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_fkCompetencia}" for="fkCompetencia" />
+                        <p:inputText id="fkCompetencia" value="#{resultadoaprendizajeController.selected.fkCompetencia}" title="#{bundle.CreateResultadoaprendizajeTitle_fkCompetencia}" required="true" requiredMessage="#{bundle.CreateResultadoaprendizajeRequiredMessage_fkCompetencia}"/>
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{resultadoaprendizajeController.selected.codigo}" title="#{bundle.CreateResultadoaprendizajeTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{resultadoaprendizajeController.selected.nombre}" title="#{bundle.CreateResultadoaprendizajeTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_activo}" for="activo" />
+                        <p:inputText id="activo" value="#{resultadoaprendizajeController.selected.activo}" title="#{bundle.CreateResultadoaprendizajeTitle_activo}" />
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{resultadoaprendizajeController.selected.fechaCreacion}" title="#{bundle.EditResultadoaprendizajeTitle_fechaCreacion}" required="true" requiredMessage="#{bundle.EditResultadoaprendizajeRequiredMessage_fechaCreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateResultadoaprendizajeLabel_fechaModificacion}" for="fechaModificacion" />
+                        <p:calendar id="fechaModificacion" pattern="MM/dd/yyyy" value="#{resultadoaprendizajeController.selected.fechaModificacion}" title="#{bundle.EditResultadoaprendizajeTitle_fechaModificacion}" required="true" requiredMessage="#{bundle.EditResultadoaprendizajeRequiredMessage_fechaModificacion}" showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{resultadoaprendizajeController.create}" value="#{bundle.Save}" update="display,:ResultadoaprendizajeListForm:datalist,:growl" oncomplete="handleSubmit(args,'ResultadoaprendizajeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ResultadoaprendizajeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

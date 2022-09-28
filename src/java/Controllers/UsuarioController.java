@@ -61,7 +61,7 @@ public class UsuarioController implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    } 
 
     public Instructores getInstructores() {
         return Instructores;
@@ -90,11 +90,11 @@ public class UsuarioController implements Serializable {
         String ruta="";
         Usuario valor;
         try{
-           
-            valor=this.ejbFacade.acceder(this.usuario);       
+          
+           valor=this.ejbFacade.acceder(this.usuario);       
             if(valor!=null){
             
-                ruta="index";
+                ruta="index.xhtml";
             }else{
             
                 FacesMessage message = new FacesMessage("Invalid password length");

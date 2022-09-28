@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCriteriosdeevaluacionTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="CriteriosdeevaluacionListForm">
+                <p:panel header="#{bundle.ListCriteriosdeevaluacionTitle}">
+                    <p:dataTable id="datalist" value="#{criteriosdeevaluacionController.items}" var="item"
+                                 selectionMode="single" selection="#{criteriosdeevaluacionController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.pkCriteriosDeEvaluacion}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCriteriosdeevaluacionTitle_pkCriteriosDeEvaluacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pkCriteriosDeEvaluacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCriteriosdeevaluacionTitle_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCriteriosdeevaluacionTitle_decripcionEvidencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.decripcionEvidencia}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCriteriosdeevaluacionTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{criteriosdeevaluacionController.prepareCreate}" update=":CriteriosdeevaluacionCreateForm" oncomplete="PF('CriteriosdeevaluacionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CriteriosdeevaluacionViewForm" oncomplete="PF('CriteriosdeevaluacionViewDialog').show()" disabled="#{empty criteriosdeevaluacionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CriteriosdeevaluacionEditForm" oncomplete="PF('CriteriosdeevaluacionEditDialog').show()" disabled="#{empty criteriosdeevaluacionController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{criteriosdeevaluacionController.destroy}" update=":growl,datalist" disabled="#{empty criteriosdeevaluacionController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
